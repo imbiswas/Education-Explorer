@@ -17,14 +17,18 @@ def get_tasks():
     #print(district)
     r = Recommendation(district, faculty, rating, affilation, fee)
     a = r.rec()
+    print(a)
     tasks = []
     for i in a:
         tasks1 = [
             {
                 'College Name': i[0],
-                'District': i[1],
-                'Faculty': i[2],
-                'Affilation': i[3],
+                'Address':i[1],
+                'District': i[2],
+                'Faculty': i[3],
+                'Affilation': i[4],
+                'url':i[6],
+                'logo':i[7],
 
             },
 

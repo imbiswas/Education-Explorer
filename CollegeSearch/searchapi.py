@@ -6,20 +6,24 @@ app = Flask(__name__)
 
 
 
-@app.route('/educationsearchapi', methods=['POST'])
+@app.route('/search', methods=['POST'])
 def get_tasks():
     values = request.form['values']
-    #print(district)
-    r = educationSearch(values)
-    a = r.rec()
+    #print(values)
+    r = educationSearch.EducationSearch(values)
+    a = r.search()
+    #print(a)
     tasks = []
     for i in a:
         tasks1 = [
             {
                 'College Name': i[0],
-                'District': i[1],
-                'Faculty': i[2],
-                'Affilation': i[3],
+                'Address':i[1],
+                'District': i[2],
+                'Faculty': i[3],
+                'Affilation': i[4],
+                'url':i[6],
+                'logo':i[7],
 
             },
 
@@ -28,4 +32,4 @@ def get_tasks():
     return jsonify({'tasks': tasks})
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug = True, port=5002 )

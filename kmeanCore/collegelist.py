@@ -21,28 +21,21 @@ class Collegelist(object):
 
 
     def connect(self):
+
         try:
-            conn = mysql.connector.connect(host='localhost',
-                                           database='educationexplorer',
-                                           user='root',
-                                           password='1234')
-            if conn.is_connected():
+            cnx = mysql.connector.connect(user="imbiswas@educationxplorer", password='apple1234**',
+                                          host="educationxplorer.mysql.database.azure.com", port=3306,
+                                          database='educationexplorer')
+
+            if cnx.is_connected():
                 #print('Connected to MySQL database')
                 pass
-            cursor = conn.cursor()
-            query = ("SELECT college_name,district_name,faculty_name,affilation_name,college_fee "
-                     "FROM educationexplorer.tbl_college as clz join educationexplorer.tbl_district as dist "
-                     "on clz.district_id= dist.district_id "
-                     "inner join educationexplorer.tbl_faculty as fac "
-                     "on fac.faculty_id=clz.faculty_id "
-                     "inner join educationexplorer.tbl_affilation as aff "
-                     "on aff.affilation_id= clz.affilation_id "
-                     "where college_id='%s'" % (self.item))
+            cursor = cnx.cursor()
+            query = ("SELECT college_name,college_address,district_name,faculty_name,affilation_name,college_fee,url,logo FROM educationexplorer.tbl_college as clz join educationexplorer.tbl_district as dist on clz.district_id= dist.district_id inner join educationexplorer.tbl_faculty as fac on fac.faculty_id=clz.faculty_id inner join educationexplorer.tbl_affilation as aff on aff.affilation_id= clz.affilation_id join educationexplorer.tbl_misc as misc on misc.misc_id = clz.miscellaneous_id where college_id='%s'" % (self.item))
 
             cursor.execute(query)
-            for (college_name, district_name, faculty_name, affilation_name, college_fee) in cursor:
-                individualitem = "{}, {} , {},{}, {} ".format(college_name, district_name, faculty_name,
-                                                              affilation_name, college_fee)
+            for (college_name,college_address,district_name,faculty_name,affilation_name,college_fee,url,logo) in cursor:
+                individualitem = "{}, {} , {},{}, {}, {},{}, {} ".format(college_name,college_address,district_name,faculty_name,affilation_name,college_fee,url,logo)
                 #print(individualitem)
                 self.listcolz.append(individualitem)
             #print(self.listcolz)
@@ -51,12 +44,13 @@ class Collegelist(object):
             cursor.close()
 
 
+
         except ConnectionError as e:
             print(e)
 
         finally:
+            cnx.close()
 
-            conn.close()
 
     def cases(self):
         if self.clusterno == '0':

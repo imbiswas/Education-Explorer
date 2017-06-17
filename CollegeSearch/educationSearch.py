@@ -1,12 +1,14 @@
 from CollegeSearch import spellingcheck
 from CollegeSearch import database
 
-class educationSearch(object):
+class EducationSearch(object):
     def __init__(self,values):
         self.values=values
 
     def search(self):
-
+        mov=[]
+        box=[]
+        st=[]
         databaseobj = []
         #get value from bing
         parser = spellingcheck.keywordInput(self.values)
@@ -20,9 +22,18 @@ class educationSearch(object):
             databaseobj = databaseobj + tempdatabase
         #prints unique data only
         a = list(set(databaseobj))
-        print(a)
-        # print(len(a))
-        # print(len(database))
-        #for i in a:
-            #print(i)
+        for line in a:
+            line = line.split(",")
+            # print(line)
+            for member in line:
+                member = member.strip()
+                # print(member)
+                box.append(member)
+            st = box
+            box = []
+            mov.append(st)
+            # print(st)
+        #print(mov)
+        return mov
+
 
