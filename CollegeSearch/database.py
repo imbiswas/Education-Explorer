@@ -23,7 +23,7 @@ class KeywordSearch(object):
                 self.nameList.append(dblist)
 
             cursor.close()
-            print(self.nameList)
+            #print(self.nameList)
 
         except ConnectionError as e:
             print(e)
