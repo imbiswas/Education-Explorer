@@ -23,8 +23,8 @@ class Collegelist(object):
     def connect(self):
 
         try:
-            cnx = mysql.connector.connect(user="root", password='1234',
-                                          host="localhost", port=3306,
+            cnx = mysql.connector.connect(user="imbiswas@educationxplorer", password='Il0v3u@l0t',
+                                          host="educationxplorer.mysql.database.azure.com", port=3306,
                                           database='educationexplorer')
 
             if cnx.is_connected():
