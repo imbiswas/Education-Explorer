@@ -7,9 +7,9 @@ class KeywordSearch(object):
         self.nameList=[]
         """ Connect to MySQL database """
         try:
-            conn = mysql.connector.connect(user="imbiswas@educationxplorer", password='Il0v3u@l0t',
-                                          host="educationxplorer.mysql.database.azure.com", port=3306,
-                                          database='educationexplorer')
+            conn = mysql.connector.connect(user="root", password='1234',
+                                           host="localhost", port=3306,
+                                           database='educationexplorer')
             if conn.is_connected():
                 #print('Connected to MySQL database')
                 pass
