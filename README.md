@@ -1,0 +1,2 @@
+# Education-Explorer
+Education Explorer is a recommendation engine that uses recommendation algorithm and data mining techniques to finds the college that’s right for you. It is an android as well as a web application that guides the client on choosing the right college and course according to client’s requirements and field. This app will let you find the best college in any particular filtered by city having ranks based on their placements and college facilities and quality of education
