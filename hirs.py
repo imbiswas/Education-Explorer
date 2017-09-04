@@ -21,20 +21,20 @@ def read_txt(path_links, path_titles):
 def remove_dead_links(links_rdd):
     links_rdd.repartition(32)
     links_rdd.cache()
-    print "\n\nREMOVING DEAD INKS\n\n"
+    print ("\n\nREMOVING DEAD INKS\n\n")
     out_links = links_rdd.flatMapValues(lambda x: [y for y in x]) \
                     .filter(lambda x: x[1] != [])
-    print "\n\nREMOVING LINKS - DONE\n\n"
+    print ("\n\nREMOVING LINKS - DONE\n\n")
     out_links.cache()
     return out_links
 
 def create_auths_hubs(titles_indexed):
     auths = titles_indexed.map(lambda x: (x[0], 1.0))
-    print auths.take(10)
-    print '\nAuths RDD created\n'
+    print (auths.take(10))
+    print ('\nAuths RDD created\n')
     hubs = auths
-    print hubs.take(10)
-    print '\nHubs RDD created\n'
+    print (hubs.take(10))
+    print ('\nHubs RDD created\n')
     return auths, hubs
 
 # UPDATE AUTHS
