@@ -19,7 +19,7 @@ def get_tasks():
     rating = request.form['rating']
     affilation = request.form['affilation']
     fee = request.form['fee']
-    #print(district)
+    print(affilation)
     r = Recommendation(district, faculty, rating, affilation, fee)
     a = r.rec()
     #print(a)

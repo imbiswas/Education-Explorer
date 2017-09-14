@@ -25,6 +25,8 @@ class Recommendation(object):
         rank3 = []
         rank4=[]
         rank5=[]
+        rank6=[]
+        rank7=[]
         rankedlist = []
         tasks = []
 
@@ -62,20 +64,32 @@ class Recommendation(object):
                 lines.extend(rank)
                 # print(lines)
                 p.append(lines)
-            elif (self.district in lines[1] and self.affilation in lines[3]) or (self.faculty in lines[2] and self.affilation in lines[3]):
+            elif (self.faculty in lines[2] and self.affilation in lines[3]) or (self.district in lines[1] and self.affilation in lines[3]) :
                 rank=['3']
                 lines.extend(rank)
                 # print(lines)
                 p.append(lines)
 
-            elif self.district in lines[1] or self.faculty in lines[2] or self.affilation in lines[3]:
+            elif self.faculty in lines[2]:
                 rank = ['4']
                 # print(rank)
                 lines.extend(rank)
                 # print(lines)
                 p.append(lines)
+            elif self.district in lines[1]:
+                rank = ['5']
+                # print(rank)
+                lines.extend(rank)
+                # print(lines)
+                p.append(lines)
+            elif self.affilation in lines[3]:
+                rank = ['6']
+                # print(rank)
+                lines.extend(rank)
+                # print(lines)
+                p.append(lines)
             else:
-                rank=['5']
+                rank=['7']
                 lines.extend(rank)
             # print(lines)
                 p.append(lines)
@@ -91,13 +105,17 @@ class Recommendation(object):
 
             elif counter[-1] is '3':
                 rank3.append(counter)
-            elif counter[-1] is '3':
+            elif counter[-1] is '4':
                 rank4.append(counter)
-            else:
+            elif counter[-1] is '5':
                 rank5.append(counter)
+            elif counter[-1] is '6':
+                rank6.append(counter)
+            else:
+                rank7.append(counter)
 
-        rankedlist = rank1 + rank2 + rank3+rank4+rank5
-        #print(rankedlist)
+        rankedlist = rank1 + rank2 + rank3+rank4+rank5+rank6+rank7
+        print(rankedlist)
         return rankedlist
 
 
