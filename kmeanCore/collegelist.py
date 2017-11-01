@@ -56,26 +56,32 @@ class Collegelist(object):
         if self.clusterno == '0':
             for self.item in self.cluster0:
                 self.connect()
-            #print(self.listcolz)
+            print(self.listcolz)
+            print(self.clusterno)
         # for cluster 1
         elif self.clusterno == '1':
             for self.item in self.cluster1:
                 self.connect()
-            #print(self.listcolz)
+            print(self.listcolz)
+            print(self.clusterno)
         # for cluster 2
         elif self.clusterno == '2':
             for self.item in self.cluster2:
                 self.connect()
-            #print(self.listcolz)
+            print(self.listcolz)
+            print(self.clusterno)
+            print(self.clusterno)
 
         # for cluster 3
         elif self.clusterno == '3':
             for self.item in self.cluster3:
                 self.connect()
-            #print(self.listcolz)
+            print(self.listcolz)
+            print(self.clusterno)
         # for cluster 4
         elif self.clusterno == '4':
             for self.item in self.cluster4:
                 self.connect()
-            #print(self.listcolz)
+            print(self.listcolz)
+            print(self.clusterno)
         return self.listcolz
