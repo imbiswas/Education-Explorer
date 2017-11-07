@@ -52,37 +52,37 @@ class Recommendation(object):
         # print(mov)
 
         for lines in mov:
-            if self.district in lines[1] and self.faculty in lines[2] and self.affilation in lines[3]:
+            if self.district in lines[2] and self.faculty in lines[3] and self.affilation in lines[4]:
                 rank = ['1']
                 # print(rank)
                 lines.extend(rank)
                 # print(lines)
                 p.append(lines)
-            elif (self.district in lines[1] and self.faculty in lines[2]):
+            elif (self.district in lines[2] and self.faculty in lines[3]):
                 rank = ['2']
                 # print(rank)
                 lines.extend(rank)
                 # print(lines)
                 p.append(lines)
-            elif (self.faculty in lines[2] and self.affilation in lines[3]) or (self.district in lines[1] and self.affilation in lines[3]) :
-                rank=['3']
+            elif (self.faculty in lines[3] and self.affilation in lines[4]) or (self.district in lines[2] and self.affilation in lines[4]) :
+                rank=['4']
                 lines.extend(rank)
                 # print(lines)
                 p.append(lines)
 
-            elif self.faculty in lines[2]:
-                rank = ['4']
+            elif self.faculty in lines[3]:
+                rank = ['3']
                 # print(rank)
                 lines.extend(rank)
                 # print(lines)
                 p.append(lines)
-            elif self.district in lines[1]:
+            elif self.district in lines[2]:
                 rank = ['5']
                 # print(rank)
                 lines.extend(rank)
                 # print(lines)
                 p.append(lines)
-            elif self.affilation in lines[3]:
+            elif self.affilation in lines[4]:
                 rank = ['6']
                 # print(rank)
                 lines.extend(rank)

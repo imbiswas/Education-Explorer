@@ -11,15 +11,15 @@ class EducationSearch(object):
         st=[]
         databaseobj = []
         #get value from bing
-        parser = spellingcheck.keywordInput(self.values)
-        correct = parser.result()
+        #parser = spellingcheck.keywordInput(self.values)
+        #correct = parser.result()
         #print(correct)
-        for word in correct:
+        #for word in correct:
             #search for each keyword in database
-            searcher = database.KeywordSearch(word)
-            tempdatabase = searcher.result()
+        searcher = database.KeywordSearch(self.values)
+        tempdatabase = searcher.result()
             #print(tempdatabase)
-            databaseobj = databaseobj + tempdatabase
+        databaseobj = databaseobj + tempdatabase
         #prints unique data only
         a = list(set(databaseobj))
         for line in a:
