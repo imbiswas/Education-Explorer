@@ -65,13 +65,21 @@ class Recommendation(object):
                 # print(lines)
                 p.append(lines)
             elif (self.faculty in lines[3] and self.affilation in lines[4]) or (self.district in lines[2] and self.affilation in lines[4]) :
+
                 rank=['3']
+
+                rank=['4']
+
                 lines.extend(rank)
                 # print(lines)
                 p.append(lines)
 
             elif self.faculty in lines[3]:
+
                 rank = ['4']
+
+                rank = ['3']
+
                 # print(rank)
                 lines.extend(rank)
                 # print(lines)

@@ -1,3 +1,5 @@
+#FOR TESTING CODE IN APP
+
 from flask import Flask, jsonify, request
 from CollegeSearch import educationSearch
 
